@@ -31,7 +31,8 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-overlay"></div>
-      <div class="hero-content">
+      <!-- animatable wrapper for hero content -->
+      <div class="hero-content animatable">
         <h1>Profesionálne Upratovacie Služby</h1>
         <p>Pre domácnosti a podniky v Žilinskom kraji.</p>
         <div class="hero-cta">
@@ -45,17 +46,17 @@
       <div class="container">
         <h2>Naše Služby</h2>
         <div class="service-cards">
-          <div class="service-card">
+          <div class="service-card animatable">
             <i class="fas fa-home fa-2x"></i>
             <h3>Domácnosti</h3>
             <p>Kompletné upratovacie služby pre byty a rodinné domy vrátane umývania okien, vysávania či žehlenia.</p>
           </div>
-          <div class="service-card">
+          <div class="service-card animatable">
             <i class="fas fa-city fa-2x"></i>
             <h3>Administratívne priestory</h3>
             <p>Starostlivosť o kancelárie, obchodné priestory a spoločné priestory bytových domov na profesionálnej úrovni.</p>
           </div>
-          <div class="service-card">
+          <div class="service-card animatable">
             <i class="fas fa-broom fa-2x"></i>
             <h3>Pravidelné &amp; jednorazové</h3>
             <p>Pravidelné alebo jednorazové upratovanie po rekonštrukcii, malovaní alebo kolaudácii.</p>
@@ -68,12 +69,12 @@
       <div class="container">
       <h2>Čo všetko ponúkame</h2>
       <ul class="offer-list">
-        <li><i class="fas fa-check-circle"></i> Pravidelné upratovanie kancelárskych a obchodných priestorov</li>
-        <li><i class="fas fa-check-circle"></i> Upratovanie spoločných priestorov bytových a nebytových domov</li>
-        <li><i class="fas fa-check-circle"></i> Jednorazové upratovanie a umývanie okien</li>
-        <li><i class="fas fa-check-circle"></i> Upratovanie po maliarskych prácach či rekonštrukcii</li>
-        <li><i class="fas fa-check-circle"></i> Upratovanie novostavieb a kolaudácií</li>
-        <li><i class="fas fa-check-circle"></i> Žehlenie a tepovanie kobercov a nábytku</li>
+        <li class="animatable"><i class="fas fa-check-circle"></i> Pravidelné upratovanie kancelárskych a obchodných priestorov</li>
+        <li class="animatable"><i class="fas fa-check-circle"></i> Upratovanie spoločných priestorov bytových a nebytových domov</li>
+        <li class="animatable"><i class="fas fa-check-circle"></i> Jednorazové upratovanie a umývanie okien</li>
+        <li class="animatable"><i class="fas fa-check-circle"></i> Upratovanie po maliarskych prácach či rekonštrukcii</li>
+        <li class="animatable"><i class="fas fa-check-circle"></i> Upratovanie novostavieb a kolaudácií</li>
+        <li class="animatable"><i class="fas fa-check-circle"></i> Žehlenie a tepovanie kobercov a nábytku</li>
       </ul>
       </div>
     </section>
@@ -83,19 +84,19 @@
         <h2>Kde pôsobíme</h2>
         <p>Naše služby poskytujeme v týchto mestách a ich okolí:</p>
         <div class="location-list">
-          <div class="location-item">
+          <div class="location-item animatable">
             <i class="fas fa-map-marker-alt"></i>
             <span>Žilina</span>
           </div>
-          <div class="location-item">
+          <div class="location-item animatable">
             <i class="fas fa-map-marker-alt"></i>
             <span>Martin</span>
           </div>
-          <div class="location-item">
+          <div class="location-item animatable">
             <i class="fas fa-map-marker-alt"></i>
             <span>Myjava</span>
           </div>
-          <div class="location-item">
+          <div class="location-item animatable">
             <i class="fas fa-map-marker-alt"></i>
             <span>Nové Mesto nad Váhom</span>
           </div>
@@ -111,7 +112,7 @@
           <p><i class="fas fa-phone-alt"></i> <a href="tel:+421911611996">0911&nbsp;611&nbsp;996</a></p>
           <p><i class="fas fa-envelope"></i> <a href="mailto:info@upratovanie-odra.sk">info@upratovanie-odra.sk</a></p>
         </div>
-        <form class="contact-form">
+        <form class="contact-form animatable">
           <div class="form-group">
             <label for="name">Vaše meno</label>
             <input type="text" id="name" name="name" placeholder="Zadajte svoje meno" required>
@@ -151,6 +152,22 @@
         });
         nav.classList.remove('open');
       });
+    });
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    document.querySelectorAll('.animatable').forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>
