@@ -434,6 +434,9 @@ main section {
   position: relative;
   scroll-margin-top: 90px;
 }
+
+/* Ensure content sits above decorative overlays */
+main section > .container { position: relative; z-index: 1; }
 main section.animate {
   animation: section-enter 900ms cubic-bezier(.2,.65,.3,1) both;
 }
@@ -593,5 +596,62 @@ main section.animate {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Repeating cleaning icon patterns for sections */
+.pattern-cleaning-light::after,
+.pattern-cleaning-dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+  background-position: top left;
+  background-size: 220px 220px;
+  z-index: 0;
+}
+
+/* Light background pattern (teal accents) */
+.pattern-cleaning-light::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'>
+    <g stroke='%230bbbbb' stroke-width='2' fill='none' stroke-opacity='0.22'>
+      <line x1='24' y1='24' x2='70' y2='84'/> 
+      <polygon points='60,84 100,84 94,104 66,104' fill='%230bbbbb' fill-opacity='0.08'/>
+      <rect x='138' y='30' width='28' height='36' rx='4'/> 
+      <rect x='146' y='20' width='16' height='10' rx='2'/> 
+      <rect x='160' y='16' width='10' height='6' rx='1'/> 
+    </g>
+    <g fill='%230bbbbb' fill-opacity='0.09'>
+      <polygon points='60,150 70,168 60,186 50,168'/>
+      <polygon points='180,140 188,154 180,168 172,154'/>
+      <polygon points='120,110 128,124 120,138 112,124'/>
+    </g>
+  </svg>");
+}
+
+/* Dark/gradient background pattern (white accents) */
+.pattern-cleaning-dark::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'>
+    <g stroke='%23ffffff' stroke-width='2' fill='none' stroke-opacity='0.22'>
+      <line x1='24' y1='24' x2='70' y2='84'/> 
+      <polygon points='60,84 100,84 94,104 66,104' fill='%23ffffff' fill-opacity='0.08'/>
+      <rect x='138' y='30' width='28' height='36' rx='4'/> 
+      <rect x='146' y='20' width='16' height='10' rx='2'/> 
+      <rect x='160' y='16' width='10' height='6' rx='1'/> 
+    </g>
+    <g fill='%23ffffff' fill-opacity='0.10'>
+      <polygon points='60,150 70,168 60,186 50,168'/>
+      <polygon points='180,140 188,154 180,168 172,154'/>
+      <polygon points='120,110 128,124 120,138 112,124'/>
+    </g>
+  </svg>");
+}
+
+@media (max-width: 768px) {
+  .pattern-cleaning-light::after,
+  .pattern-cleaning-dark::after {
+    background-size: 160px 160px;
+    opacity: 0.9;
   }
 }
