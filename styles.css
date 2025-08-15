@@ -208,7 +208,7 @@ section h2::after {
 }
 
 /* Services Section */
-.services { background: #f7f8fa; padding-top: 6rem; }
+.services { background: #ffffff; padding-top: 6rem; }
 .services::before { content: none; }
 
 .service-cards {
@@ -297,10 +297,7 @@ section h2::after {
 }
 
 /* Locations Section */
-.locations {
-  background: #f7f8fa;
-  padding-top: 6rem;
-}
+.locations { background: #ffffff; padding-top: 6rem; }
 
 .locations::before { content: none; }
 
@@ -397,7 +394,11 @@ main section { position: relative; scroll-margin-top: 90px; }
 /* Ensure content sits above decorative overlays */
 main section > .container { position: relative; z-index: 1; }
 /* rozlozime ikonkovy grid pod obsah sekcie */
-main section > .bg-icons { position: absolute; inset: 0; z-index: 0; opacity: 1; }
+/* ikonkovy grid len v bielych sekciách */
+.services > .bg-icons,
+.locations > .bg-icons { position: absolute; inset: 0; z-index: 0; opacity: 1; }
+.offer > .bg-icons,
+.contact > .bg-icons { display: none; }
 
 /* Stagger vypnuty */
 .stagger > * { opacity: 1; transform: none; }
