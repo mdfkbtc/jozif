@@ -208,20 +208,8 @@ section h2::after {
 }
 
 /* Services Section */
-.services {
-  background: #f7f8fa;
-  padding-top: 6rem;
-}
-/* angled separator above services */
-.services::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0;
-  height: 120px;
-  top: -119px;
-  background: linear-gradient(0deg, #f7f8fa 60%, transparent 60%);
-  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
-}
+.services { background: #f7f8fa; padding-top: 6rem; }
+.services::before { content: none; }
 
 .service-cards {
   display: flex;
@@ -284,15 +272,7 @@ section h2::after {
   padding-top: 6rem;
 }
 
-.offer::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0;
-  height: 120px;
-  top: -119px;
-  background: linear-gradient(0deg, rgba(11,187,187,0.1), transparent 70%);
-  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
-}
+.offer::before { content: none; }
 
 .offer h2 {
   color: #fff;
@@ -322,15 +302,7 @@ section h2::after {
   padding-top: 6rem;
 }
 
-.locations::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0;
-  height: 120px;
-  top: -119px;
-  background: linear-gradient(0deg, #f7f8fa 60%, transparent 60%);
-  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
-}
+.locations::before { content: none; }
 
 .locations p {
   text-align: center;
@@ -364,15 +336,7 @@ section h2::after {
   padding-top: 6rem;
 }
 
-.contact::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0;
-  height: 120px;
-  top: -119px;
-  background: linear-gradient(0deg, rgba(146,254,157,0.1), transparent 70%);
-  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
-}
+.contact::before { content: none; }
 
 .contact .contact-info p {
   font-size: 1.1rem;
@@ -432,6 +396,8 @@ section h2::after {
 main section { position: relative; scroll-margin-top: 90px; }
 /* Ensure content sits above decorative overlays */
 main section > .container { position: relative; z-index: 1; }
+/* rozlozime ikonkovy grid pod obsah sekcie */
+main section > .bg-icons { position: absolute; inset: 0; z-index: 0; opacity: 1; }
 
 /* Stagger vypnuty */
 .stagger > * { opacity: 1; transform: none; }
@@ -594,56 +560,11 @@ main section > .container { position: relative; z-index: 1; }
   }
 }
 
-/* Repeating cleaning icon patterns for sections */
+/* pattern classes uz nepouzivame */
 .pattern-cleaning-light::after,
-.pattern-cleaning-dark::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-repeat: repeat;
-  background-position: top left;
-  background-size: 220px 220px;
-  z-index: 0;
-  /* vypnute posuvanie vzoru */
-  animation: none;
-}
+.pattern-cleaning-dark::after { content: none; }
 
-/* Light background pattern (teal accents) */
-.pattern-cleaning-light::after {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'>
-    <g stroke='%230bbbbb' stroke-width='2' fill='none' stroke-opacity='0.3'>
-      <line x1='24' y1='24' x2='70' y2='84'/> 
-      <polygon points='60,84 100,84 94,104 66,104' fill='%230bbbbb' fill-opacity='0.08'/>
-      <rect x='138' y='30' width='28' height='36' rx='4'/> 
-      <rect x='146' y='20' width='16' height='10' rx='2'/> 
-      <rect x='160' y='16' width='10' height='6' rx='1'/> 
-    </g>
-    <g fill='%230bbbbb' fill-opacity='0.14'>
-      <polygon points='60,150 70,168 60,186 50,168'/>
-      <polygon points='180,140 188,154 180,168 172,154'/>
-      <polygon points='120,110 128,124 120,138 112,124'/>
-    </g>
-  </svg>");
-}
-
-/* Dark/gradient background pattern (white accents) */
-.pattern-cleaning-dark::after {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'>
-    <g stroke='%23ffffff' stroke-width='2' fill='none' stroke-opacity='0.26'>
-      <line x1='24' y1='24' x2='70' y2='84'/> 
-      <polygon points='60,84 100,84 94,104 66,104' fill='%23ffffff' fill-opacity='0.08'/>
-      <rect x='138' y='30' width='28' height='36' rx='4'/> 
-      <rect x='146' y='20' width='16' height='10' rx='2'/> 
-      <rect x='160' y='16' width='10' height='6' rx='1'/> 
-    </g>
-    <g fill='%23ffffff' fill-opacity='0.16'>
-      <polygon points='60,150 70,168 60,186 50,168'/>
-      <polygon points='180,140 188,154 180,168 172,154'/>
-      <polygon points='120,110 128,124 120,138 112,124'/>
-    </g>
-  </svg>");
-}
+/* odstranene SVG patterny */
 
 @keyframes pattern-drift {
   0% { background-position: 0 0; }
