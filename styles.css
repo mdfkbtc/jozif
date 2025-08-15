@@ -161,14 +161,14 @@ a {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border-radius: 30px;
-  background: #0bbbbb;
+  background: linear-gradient(90deg, #0bbbbb, #0ea5e9);
   color: #fff;
   font-weight: 600;
   transition: background 0.3s, transform 0.2s ease;
-  box-shadow: 0 8px 20px rgba(11,187,187,0.25);
+  box-shadow: 0 8px 20px rgba(14,165,233,0.25);
 }
 
-.btn:hover { background: #089e9e; transform: translateY(-1px); }
+.btn:hover { filter: brightness(0.95); transform: translateY(-1px); }
 
 .btn.secondary {
   background: transparent;
@@ -184,29 +184,16 @@ section h2 {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #0bbbbb;
+  background: linear-gradient(90deg, #0bbbbb, #92fe9d, #7c3aed);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
   position: relative;
 }
 
-/* subtle sparkle sweep over headings */
-.shine {
-  position: relative;
-  overflow: hidden;
-}
-.shine::after {
-  content: "";
-  position: absolute;
-  top: 0; left: -150%;
-  height: 100%; width: 120%;
-  background: linear-gradient(115deg, rgba(255,255,255,0) 40%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 60%);
-  transform: skewX(-10deg);
-  animation: shineSweep 4.5s ease-in-out infinite;
-}
-@keyframes shineSweep {
-  0% { left: -150%; }
-  30% { left: 130%; }
-  100% { left: 130%; }
-}
+/* vypnute leskle "behanie" cez nadpisy */
+.shine { position: relative; overflow: visible; }
+.shine::after { content: none; }
 
 section h2::after {
   content: "";
@@ -292,11 +279,9 @@ section h2::after {
 
 /* Offer Section */
 .offer {
-  background: linear-gradient(45deg,#0bbbbb,#92fe9d);
+  background: linear-gradient(45deg, #0bbbbb, #92fe9d, #7c3aed);
   color: #fff;
   padding-top: 6rem;
-  background-size: 200% 200%;
-  animation: gradientShift 16s ease-in-out infinite alternate;
 }
 
 .offer::before {
@@ -374,11 +359,9 @@ section h2::after {
 
 /* Contact Section */
 .contact {
-  background: linear-gradient(45deg,#92fe9d,#0bbbbb);
+  background: linear-gradient(45deg, #7c3aed, #0bbbbb, #92fe9d);
   color: #fff;
   padding-top: 6rem;
-  background-size: 200% 200%;
-  animation: gradientShift 18s ease-in-out infinite alternate;
 }
 
 .contact::before {
@@ -441,44 +424,17 @@ section h2::after {
 
 .contact .btn:hover { background: #089e9e; }
 
-/* Animation classes */
-.animatable {
-  opacity: 0;
-  transform: translateY(40px);
-}
+/* Animation classes vypnute: prvky su viditelne bez JS */
+.animatable { opacity: 1; transform: none; }
+.animatable.animate { opacity: 1; transform: none; }
 
-.animatable.animate {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-/* sections slide-in with subtle parallax fade */
-main section {
-  position: relative;
-  scroll-margin-top: 90px;
-}
-
+/* Layout */
+main section { position: relative; scroll-margin-top: 90px; }
 /* Ensure content sits above decorative overlays */
 main section > .container { position: relative; z-index: 1; }
-main section.animate {
-  animation: section-enter 900ms cubic-bezier(.2,.65,.3,1) both;
-}
-@keyframes section-enter {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
-/* Staggered children animation */
-.stagger > * { opacity: 0; transform: translateY(20px); }
-.stagger.animate > * { animation: staggerFade 0.7s ease-out forwards; }
-.stagger.animate > *:nth-child(1) { animation-delay: 0.0s; }
-.stagger.animate > *:nth-child(2) { animation-delay: 0.08s; }
-.stagger.animate > *:nth-child(3) { animation-delay: 0.16s; }
-.stagger.animate > *:nth-child(4) { animation-delay: 0.24s; }
-.stagger.animate > *:nth-child(5) { animation-delay: 0.32s; }
-.stagger.animate > *:nth-child(6) { animation-delay: 0.40s; }
-@keyframes staggerFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+/* Stagger vypnuty */
+.stagger > * { opacity: 1; transform: none; }
 
 /* Footer */
 .footer {
@@ -598,7 +554,7 @@ main section.animate {
   .quote-form .form-row { grid-template-columns: 1fr; }
 }
 
-/* Background icon grid */
+/* Background icon grid – vyraznejsie, bez pohybu */
 .bg-icons {
   position: relative;
   z-index: 0;
@@ -606,24 +562,17 @@ main section.animate {
   grid-template-columns: repeat(8, 1fr);
   gap: 24px;
   padding: 64px 5% 32px;
-  color: rgba(11,187,187,0.12);
-  font-size: 24px;
+  color: rgba(11,187,187,0.25);
+  font-size: 32px;
   pointer-events: none;
 }
 .bg-icons i {
-  opacity: 0.75;
-  animation: float 10s ease-in-out infinite;
+  opacity: 0.9;
   pointer-events: none;
 }
-.bg-icons i:nth-child(3n) { color: rgba(146,254,157,0.18); animation-duration: 12s; }
-.bg-icons i:nth-child(4n) { color: rgba(8,158,158,0.16); animation-duration: 9s; }
-.bg-icons i:nth-child(5n) { color: rgba(0,0,0,0.08); animation-duration: 11s; }
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
-}
+.bg-icons i:nth-child(3n) { color: rgba(146,254,157,0.3); }
+.bg-icons i:nth-child(4n) { color: rgba(124,58,237,0.22); }
+.bg-icons i:nth-child(5n) { color: rgba(14,165,233,0.24); }
 
 /* Accessibility: reduce motion */
 @media (prefers-reduced-motion: reduce) {
@@ -645,20 +594,21 @@ main section.animate {
   background-position: top left;
   background-size: 220px 220px;
   z-index: 0;
-  animation: pattern-drift 30s linear infinite;
+  /* vypnute posuvanie vzoru */
+  animation: none;
 }
 
 /* Light background pattern (teal accents) */
 .pattern-cleaning-light::after {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'>
-    <g stroke='%230bbbbb' stroke-width='2' fill='none' stroke-opacity='0.22'>
+    <g stroke='%230bbbbb' stroke-width='2' fill='none' stroke-opacity='0.3'>
       <line x1='24' y1='24' x2='70' y2='84'/> 
       <polygon points='60,84 100,84 94,104 66,104' fill='%230bbbbb' fill-opacity='0.08'/>
       <rect x='138' y='30' width='28' height='36' rx='4'/> 
       <rect x='146' y='20' width='16' height='10' rx='2'/> 
       <rect x='160' y='16' width='10' height='6' rx='1'/> 
     </g>
-    <g fill='%230bbbbb' fill-opacity='0.09'>
+    <g fill='%230bbbbb' fill-opacity='0.14'>
       <polygon points='60,150 70,168 60,186 50,168'/>
       <polygon points='180,140 188,154 180,168 172,154'/>
       <polygon points='120,110 128,124 120,138 112,124'/>
@@ -669,14 +619,14 @@ main section.animate {
 /* Dark/gradient background pattern (white accents) */
 .pattern-cleaning-dark::after {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'>
-    <g stroke='%23ffffff' stroke-width='2' fill='none' stroke-opacity='0.22'>
+    <g stroke='%23ffffff' stroke-width='2' fill='none' stroke-opacity='0.26'>
       <line x1='24' y1='24' x2='70' y2='84'/> 
       <polygon points='60,84 100,84 94,104 66,104' fill='%23ffffff' fill-opacity='0.08'/>
       <rect x='138' y='30' width='28' height='36' rx='4'/> 
       <rect x='146' y='20' width='16' height='10' rx='2'/> 
       <rect x='160' y='16' width='10' height='6' rx='1'/> 
     </g>
-    <g fill='%23ffffff' fill-opacity='0.10'>
+    <g fill='%23ffffff' fill-opacity='0.16'>
       <polygon points='60,150 70,168 60,186 50,168'/>
       <polygon points='180,140 188,154 180,168 172,154'/>
       <polygon points='120,110 128,124 120,138 112,124'/>
@@ -695,24 +645,8 @@ main section.animate {
   100% { background-position: 100% 50%; }
 }
 
-/* Blobs in hero */
-.blobs { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-.blob {
-  position: absolute;
-  width: 380px; height: 380px;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.22;
-  mix-blend-mode: screen;
-  animation: blobMove 22s ease-in-out infinite;
-}
-.blob-1 { left: -80px; top: 10%; background: radial-gradient(circle at 30% 30%, rgba(146,254,157,0.9), rgba(11,187,187,0.6)); animation-delay: 0s; }
-.blob-2 { right: -120px; top: 35%; background: radial-gradient(circle at 60% 40%, rgba(11,187,187,0.9), rgba(0,128,128,0.5)); animation-delay: 5s; }
-.blob-3 { left: 20%; bottom: -160px; background: radial-gradient(circle at 40% 60%, rgba(255,255,255,0.8), rgba(11,187,187,0.4)); animation-delay: 10s; }
-@keyframes blobMove {
-  0%, 100% { transform: translate(0,0) scale(1); }
-  50% { transform: translate(30px,-20px) scale(1.08); }
-}
+/* Blobs vypnute */
+.blobs { display: none; }
 
 @media (max-width: 768px) {
   .pattern-cleaning-light::after,

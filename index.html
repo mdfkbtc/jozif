@@ -45,7 +45,6 @@
           <li><a href="#home">Domov</a></li>
           <li><a href="#services">Služby</a></li>
           <li><a href="#offer">Ponuka</a></li>
-          <li><a href="#cenova-ponuka">Cenová ponuka</a></li>
           <li><a href="#locations">Lokalita</a></li>
           <li><a href="#contact">Kontakt</a></li>
         </ul>
@@ -152,59 +151,6 @@
       </ul>
       </div>
     </section>
-    <!-- Quote Section -->
-    <section id="cenova-ponuka" class="quote pattern-cleaning-light">
-      <div class="container">
-        <h2 class="animatable shine">Cenová ponuka</h2>
-        <p class="quote-subtitle animatable">Vyplňte krátky formulár a pripravíme pre vás nezáväznú cenu podľa priestoru a požiadaviek.</p>
-        <form class="quote-form animatable">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="spaceType">Typ priestoru</label>
-              <select id="spaceType" name="spaceType" required>
-                <option value="" disabled selected>Vyberte možnosť</option>
-                <option>Byt / Rodinný dom</option>
-                <option>Kancelária</option>
-                <option>Prevádzka / Obchod</option>
-                <option>Po rekonštrukcii</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="size">Rozloha (m²)</label>
-              <input type="number" id="size" name="size" min="10" step="5" placeholder="napr. 75" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="frequency">Frekvencia</label>
-              <select id="frequency" name="frequency" required>
-                <option value="" disabled selected>Vyberte frekvenciu</option>
-                <option>Jednorazovo</option>
-                <option>Týždenne</option>
-                <option>Každé 2 týždne</option>
-                <option>Mesačne</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="city">Mesto/Obec</label>
-              <input type="text" id="city" name="city" placeholder="Martin, Vrútky…" required>
-            </div>
-          </div>
-          <fieldset class="addons">
-            <legend>Doplnkové služby</legend>
-            <label><input type="checkbox" name="addons" value="okna"> Umývanie okien</label>
-            <label><input type="checkbox" name="addons" value="tepovanie"> Tepovanie kobercov/čalúnenia</label>
-            <label><input type="checkbox" name="addons" value="spotrebice"> Vnútro spotrebičov</label>
-            <label><input type="checkbox" name="addons" value="eko"> Eko čistiace prostriedky</label>
-          </fieldset>
-          <div class="form-group">
-            <label for="note">Poznámka</label>
-            <textarea id="note" name="note" rows="4" placeholder="Krátky popis priestorov, prístup, preferovaný termín…"></textarea>
-          </div>
-          <button type="submit" class="btn btn-accent">Získať nezáväznú cenu</button>
-        </form>
-      </div>
-    </section>
     <!-- Locations Section -->
     <section id="locations" class="locations pattern-cleaning-light">
       <div class="container">
@@ -281,19 +227,7 @@
       });
     });
 
-    // Intersection Observer for animations (elements + whole sections)
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.animatable').forEach(el => observer.observe(el));
-    document.querySelectorAll('main section').forEach(sec => observer.observe(sec));
-    document.querySelectorAll('.stagger').forEach(sec => observer.observe(sec));
+    // Animácie vypnuté – žiadne pozorovanie prvkov
 
     // header scrolled state
     const headerEl = document.getElementById('header');
