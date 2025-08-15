@@ -188,6 +188,26 @@ section h2 {
   position: relative;
 }
 
+/* subtle sparkle sweep over headings */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -150%;
+  height: 100%; width: 120%;
+  background: linear-gradient(115deg, rgba(255,255,255,0) 40%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 60%);
+  transform: skewX(-10deg);
+  animation: shineSweep 4.5s ease-in-out infinite;
+}
+@keyframes shineSweep {
+  0% { left: -150%; }
+  30% { left: 130%; }
+  100% { left: 130%; }
+}
+
 section h2::after {
   content: "";
   position: absolute;
@@ -275,6 +295,8 @@ section h2::after {
   background: linear-gradient(45deg,#0bbbbb,#92fe9d);
   color: #fff;
   padding-top: 6rem;
+  background-size: 200% 200%;
+  animation: gradientShift 16s ease-in-out infinite alternate;
 }
 
 .offer::before {
@@ -355,6 +377,8 @@ section h2::after {
   background: linear-gradient(45deg,#92fe9d,#0bbbbb);
   color: #fff;
   padding-top: 6rem;
+  background-size: 200% 200%;
+  animation: gradientShift 18s ease-in-out infinite alternate;
 }
 
 .contact::before {
@@ -444,6 +468,17 @@ main section.animate {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Staggered children animation */
+.stagger > * { opacity: 0; transform: translateY(20px); }
+.stagger.animate > * { animation: staggerFade 0.7s ease-out forwards; }
+.stagger.animate > *:nth-child(1) { animation-delay: 0.0s; }
+.stagger.animate > *:nth-child(2) { animation-delay: 0.08s; }
+.stagger.animate > *:nth-child(3) { animation-delay: 0.16s; }
+.stagger.animate > *:nth-child(4) { animation-delay: 0.24s; }
+.stagger.animate > *:nth-child(5) { animation-delay: 0.32s; }
+.stagger.animate > *:nth-child(6) { animation-delay: 0.40s; }
+@keyframes staggerFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 /* Footer */
 .footer {
@@ -610,6 +645,7 @@ main section.animate {
   background-position: top left;
   background-size: 220px 220px;
   z-index: 0;
+  animation: pattern-drift 30s linear infinite;
 }
 
 /* Light background pattern (teal accents) */
@@ -646,6 +682,36 @@ main section.animate {
       <polygon points='120,110 128,124 120,138 112,124'/>
     </g>
   </svg>");
+}
+
+@keyframes pattern-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 60px 30px; }
+}
+
+/* Animated gradient shift */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Blobs in hero */
+.blobs { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.blob {
+  position: absolute;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.22;
+  mix-blend-mode: screen;
+  animation: blobMove 22s ease-in-out infinite;
+}
+.blob-1 { left: -80px; top: 10%; background: radial-gradient(circle at 30% 30%, rgba(146,254,157,0.9), rgba(11,187,187,0.6)); animation-delay: 0s; }
+.blob-2 { right: -120px; top: 35%; background: radial-gradient(circle at 60% 40%, rgba(11,187,187,0.9), rgba(0,128,128,0.5)); animation-delay: 5s; }
+.blob-3 { left: 20%; bottom: -160px; background: radial-gradient(circle at 40% 60%, rgba(255,255,255,0.8), rgba(11,187,187,0.4)); animation-delay: 10s; }
+@keyframes blobMove {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(30px,-20px) scale(1.08); }
 }
 
 @media (max-width: 768px) {

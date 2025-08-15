@@ -57,12 +57,17 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-overlay"></div>
+      <div class="blobs" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+      </div>
       <div class="hero-wave" aria-hidden="true">
         <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="#f7f8fa" d="M0,96L60,85.3C120,75,240,53,360,48C480,43,600,53,720,69.3C840,85,960,107,1080,112C1200,117,1320,107,1380,101.3L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path></svg>
       </div>
       <!-- animatable wrapper for hero content -->
       <div class="hero-content animatable">
-        <h1>Profesionálne upratovacie služby v Martine</h1>
+        <h1 class="shine">Profesionálne upratovacie služby v Martine</h1>
         <p>Pre domácnosti a firmy v Martine a okolí. Spoľahlivo, kvalitne, poistené.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn">Nezáväzná ponuka</a>
@@ -113,8 +118,8 @@
     <!-- Services Section -->
     <section id="services" class="services pattern-cleaning-light">
       <div class="container">
-        <h2 class="animatable">Naše Služby</h2>
-        <div class="service-cards">
+        <h2 class="animatable shine">Naše Služby</h2>
+        <div class="service-cards stagger animatable">
           <div class="service-card animatable">
             <i class="fas fa-home fa-2x"></i>
             <h3>Domácnosti</h3>
@@ -136,8 +141,8 @@
     <!-- Offer Section -->
     <section id="offer" class="offer pattern-cleaning-dark">
       <div class="container">
-      <h2 class="animatable">Čo všetko ponúkame</h2>
-      <ul class="offer-list">
+      <h2 class="animatable shine">Čo všetko ponúkame</h2>
+      <ul class="offer-list stagger animatable">
         <li class="animatable"><i class="fas fa-check-circle"></i> Pravidelné upratovanie: týždenne, 2× mesačne alebo mesačne</li>
         <li class="animatable"><i class="fas fa-check-circle"></i> Jednorazové hĺbkové upratovanie a pri sťahovaní</li>
         <li class="animatable"><i class="fas fa-check-circle"></i> Upratovanie po rekonštrukcii alebo maľovaní</li>
@@ -150,7 +155,7 @@
     <!-- Quote Section -->
     <section id="cenova-ponuka" class="quote pattern-cleaning-light">
       <div class="container">
-        <h2 class="animatable">Cenová ponuka</h2>
+        <h2 class="animatable shine">Cenová ponuka</h2>
         <p class="quote-subtitle animatable">Vyplňte krátky formulár a pripravíme pre vás nezáväznú cenu podľa priestoru a požiadaviek.</p>
         <form class="quote-form animatable">
           <div class="form-row">
@@ -203,7 +208,7 @@
     <!-- Locations Section -->
     <section id="locations" class="locations pattern-cleaning-light">
       <div class="container">
-        <h2 class="animatable">Kde pôsobíme</h2>
+        <h2 class="animatable shine">Kde pôsobíme</h2>
         <p>Naše služby poskytujeme v Martine a okolí:</p>
         <div class="location-list">
           <div class="location-item animatable">
@@ -228,7 +233,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact pattern-cleaning-dark">
       <div class="container">
-        <h2 class="animatable">Kontaktujte nás</h2>
+        <h2 class="animatable shine">Kontaktujte nás</h2>
         <p>Zaujala vás naša ponuka? Napíšte nám alebo zavolajte – pripravíme pre vás nezáväznú cenovú ponuku.</p>
         <div class="contact-info">
           <p><i class="fas fa-phone-alt"></i> <a href="tel:+421911611996">0911&nbsp;611&nbsp;996</a></p>
@@ -288,6 +293,7 @@
 
     document.querySelectorAll('.animatable').forEach(el => observer.observe(el));
     document.querySelectorAll('main section').forEach(sec => observer.observe(sec));
+    document.querySelectorAll('.stagger').forEach(sec => observer.observe(sec));
 
     // header scrolled state
     const headerEl = document.getElementById('header');
