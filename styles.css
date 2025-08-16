@@ -216,15 +216,12 @@ section h2::after {
 }
 
 /* Services Section */
-.services { background: #ffffff; padding-top: 6rem; }
+.services { padding-top: 6rem; }
+.services.light { background: #ffffff; }
+.services.dark { background: linear-gradient(180deg, #0b1f3a, #0e2a4d); color: #e6f1ff; }
 .services::before { content: none; }
 
-.service-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-}
+.service-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; justify-items: stretch; }
 
 .service-card {
   background: #fff;
@@ -316,7 +313,9 @@ section h2::after {
 }
 
 /* Locations Section */
-.locations { background: #ffffff; padding-top: 6rem; }
+.locations { padding-top: 6rem; }
+.locations.dark { background: linear-gradient(180deg, #0b1f3a, #0e2a4d); color: #e6f1ff; }
+.locations.dark h2 { color: transparent; background: linear-gradient(90deg, #93c5fd, #38bdf8, #1d4ed8); -webkit-background-clip: text; background-clip: text; }
 
 .locations::before { content: none; }
 
@@ -570,9 +569,12 @@ main section > .container { position: relative; z-index: 1; }
 /* Responsivita pre ikonkové pozadie */
 @media (max-width: 1024px) {
   .bg-icons { grid-template-columns: repeat(6, 1fr); font-size: 28px; gap: 20px; }
+  .service-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 768px) {
   .bg-icons { grid-template-columns: repeat(4, 1fr); font-size: 22px; gap: 16px; padding: 40px 5% 24px; }
+  .service-cards { grid-template-columns: 1fr; }
+  .service-card { max-width: 100%; }
 }
 @media (max-width: 480px) {
   .bg-icons { grid-template-columns: repeat(3, 1fr); font-size: 18px; gap: 12px; }
