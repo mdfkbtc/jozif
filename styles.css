@@ -219,7 +219,7 @@ section h2::after {
 .services.dark h2, .locations.dark h2 { color: #e6f1ff; }
 
 /* Services Section */
-.services { padding-top: 6rem; }
+.services { padding-top: 6rem; position: relative; overflow: hidden; }
 .services.light > .container { padding-top: 4.5rem; padding-bottom: 4.5rem; }
 .services.dark { background: linear-gradient(180deg, #0b1f3a, #0e2a4d); color: #e6f1ff; }
 .services.dark > .container { padding-top: 5.5rem; padding-bottom: 5.5rem; }
@@ -372,7 +372,7 @@ section h2::after {
 }
 
 /* Locations Section */
-.locations { padding-top: 6rem; }
+.locations { padding-top: 6rem; position: relative; overflow: hidden; }
 .locations.dark > .container { padding-top: 5.5rem; padding-bottom: 5.5rem; }
 .locations.dark { background: linear-gradient(180deg, #0b1f3a, #0e2a4d); color: #e6f1ff; }
 .locations.dark h2 { color: transparent; background: linear-gradient(90deg, #93c5fd, #38bdf8, #1d4ed8); -webkit-background-clip: text; background-clip: text; }
@@ -530,13 +530,16 @@ main section > .container { position: relative; z-index: 1; padding-top: 3.5rem;
   bottom: -40px;
   width: 12px;
   height: 12px;
-  background: rgba(255,255,255,0.7);
+  background: rgba(56,189,248,0.85);
   border-radius: 50%;
   filter: blur(0.5px);
   animation: rise 8s infinite ease-in;
 }
-.bubbles span:nth-child(odd) { width: 8px; height: 8px; animation-duration: 9s; opacity: 0.9; }
-.bubbles span:nth-child(3n) { width: 14px; height: 14px; animation-duration: 7s; opacity: 0.8; }
+.bubbles span:nth-child(odd) { width: 8px; height: 8px; animation-duration: 9s; opacity: 0.95; background: rgba(14,165,233,0.85); }
+.bubbles span:nth-child(3n) { width: 14px; height: 14px; animation-duration: 7s; opacity: 0.9; background: rgba(2,132,199,0.85); }
+.bubbles span:nth-child(4n) { background: rgba(96,165,250,0.85); }
+.bubbles span:nth-child(5n) { background: rgba(59,130,246,0.85); }
+.bubbles span:nth-child(6n) { background: rgba(37,99,235,0.85); }
 .bubbles span:nth-child(1) { left: 10%; }
 .bubbles span:nth-child(2) { left: 20%; }
 .bubbles span:nth-child(3) { left: 30%; }
