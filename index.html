@@ -292,6 +292,61 @@
     };
     onScroll();
     window.addEventListener('scroll', onScroll);
+
+    // Generate dense icon grid background for light sections
+    const iconClasses = [
+      'fa-broom','fa-spray-can','fa-soap','fa-hands-wash','fa-trash-alt',
+      'fa-shower','fa-bath','fa-star','fa-leaf','fa-home','fa-paint-brush'
+    ];
+
+    const fillGrid = (gridEl) => {
+      if (!gridEl) return;
+      // Skip if hidden (dark sections)
+      const style = getComputedStyle(gridEl);
+      if (style.display === 'none') return;
+      // Read CSS variables for tile and gap
+      const tileVar = parseFloat(style.getPropertyValue('--tile')) || 48;
+      const gapVar = parseFloat(style.getPropertyValue('--gap')) || 12;
+      const paddingLeft = parseFloat(style.paddingLeft) || 0;
+      const paddingRight = parseFloat(style.paddingRight) || 0;
+      const paddingTop = parseFloat(style.paddingTop) || 0;
+      const paddingBottom = parseFloat(style.paddingBottom) || 0;
+      const width = gridEl.clientWidth - paddingLeft - paddingRight;
+      const height = gridEl.clientHeight - paddingTop - paddingBottom;
+      const cols = Math.max(1, Math.ceil((width + gapVar) / (tileVar + gapVar)));
+      const rows = Math.max(1, Math.ceil((height + gapVar) / (tileVar + gapVar)));
+      const needed = cols * rows;
+      // Avoid unnecessary DOM churn if already filled sufficiently
+      if (gridEl.childElementCount === needed) return;
+      gridEl.innerHTML = '';
+      for (let i = 0; i < needed; i++) {
+        const icon = document.createElement('i');
+        const cls = iconClasses[i % iconClasses.length];
+        icon.className = `fas ${cls}`;
+        gridEl.appendChild(icon);
+      }
+    };
+
+    const refreshAllGrids = () => {
+      document.querySelectorAll('.services.light > .bg-icons, .locations.light > .bg-icons')
+        .forEach(fillGrid);
+    };
+
+    const onResize = (() => {
+      let raf = null;
+      return () => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          raf = null;
+          refreshAllGrids();
+        });
+      };
+    })();
+
+    window.addEventListener('resize', onResize);
+    window.addEventListener('orientationchange', onResize);
+    window.addEventListener('load', refreshAllGrids);
+    document.addEventListener('DOMContentLoaded', refreshAllGrids);
   </script>
 </body>
 </html>
