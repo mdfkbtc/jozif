@@ -221,6 +221,9 @@ section h2::after {
 
 /* Services Section */
 .services { padding-top: 6rem; }
+.services.light > .container { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+.services.dark { background: linear-gradient(180deg, #0b1f3a, #0e2a4d); color: #e6f1ff; }
+.services.dark > .container { padding-top: 5.5rem; padding-bottom: 5.5rem; }
 .services.light { background: #ffffff; }
 .services.dark { background: linear-gradient(180deg, #0b1f3a, #0e2a4d); color: #e6f1ff; }
 .services.dark h2::after { background: linear-gradient(90deg, #93c5fd, #38bdf8); }
@@ -369,6 +372,7 @@ section h2::after {
 
 /* Locations Section */
 .locations { padding-top: 6rem; }
+.locations.dark > .container { padding-top: 5.5rem; padding-bottom: 5.5rem; }
 .locations.dark { background: linear-gradient(180deg, #0b1f3a, #0e2a4d); color: #e6f1ff; }
 .locations.dark h2 { color: transparent; background: linear-gradient(90deg, #93c5fd, #38bdf8, #1d4ed8); -webkit-background-clip: text; background-clip: text; }
 
@@ -472,7 +476,7 @@ main section {
 /* snap each section */
 main > section { scroll-snap-align: start; scroll-snap-stop: always; }
 /* Ensure content sits above decorative overlays */
-main section > .container { position: relative; z-index: 1; }
+main section > .container { position: relative; z-index: 1; padding-top: 3.5rem; padding-bottom: 3.5rem; }
 /* rozlozime ikonkovy grid pod obsah sekcie */
 /* ikonkovy grid len v bielych sekciách */
 .services.light > .bg-icons,
