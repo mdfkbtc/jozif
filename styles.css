@@ -473,6 +473,7 @@ main section {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 /* snap each section */
 main > section { scroll-snap-align: start; scroll-snap-stop: normal; }
