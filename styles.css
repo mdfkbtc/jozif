@@ -608,34 +608,34 @@ main section > .container { position: relative; z-index: 1; }
   position: relative;
   z-index: 0;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(18, 1fr);
+  gap: 10px;
   padding: 64px 5% 32px;
   color: rgba(14,165,233,0.25);
-  font-size: 22px;
+  font-size: 18px;
   pointer-events: none;
 }
 .bg-icons i {
   opacity: 0.9;
   pointer-events: none;
 }
-.bg-icons .material-symbols-rounded { opacity: 0.9; pointer-events: none; font-size: 22px; }
+.bg-icons .material-symbols-rounded { opacity: 0.9; pointer-events: none; font-size: 18px; }
 .bg-icons i:nth-child(3n) { color: rgba(56,189,248,0.28); }
 .bg-icons i:nth-child(4n) { color: rgba(124,58,237,0.22); }
 .bg-icons i:nth-child(5n) { color: rgba(29,78,216,0.22); }
 
 /* Responsivita pre ikonkové pozadie */
 @media (max-width: 1024px) {
-  .bg-icons { grid-template-columns: repeat(10, 1fr); font-size: 20px; gap: 14px; }
+  .bg-icons { grid-template-columns: repeat(16, 1fr); font-size: 16px; gap: 8px; }
   .service-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 768px) {
-  .bg-icons { grid-template-columns: repeat(8, 1fr); font-size: 18px; gap: 12px; padding: 40px 5% 24px; }
+  .bg-icons { grid-template-columns: repeat(12, 1fr); font-size: 14px; gap: 6px; padding: 40px 5% 24px; }
   .service-cards { grid-template-columns: 1fr; }
   .service-card { max-width: 100%; }
 }
 @media (max-width: 480px) {
-  .bg-icons { grid-template-columns: repeat(6, 1fr); font-size: 16px; gap: 10px; }
+  .bg-icons { grid-template-columns: repeat(10, 1fr); font-size: 12px; gap: 4px; }
 }
 
 /* Accessibility: reduce motion */
