@@ -619,6 +619,9 @@ main section > .container { position: relative; z-index: 1; padding-top: 3.5rem;
   z-index: 0;
   display: grid;
   pointer-events: none;
+  contain: paint;
+  will-change: transform;
+  transform: translateZ(0);
 }
 .services.light > .bg-icons,
 .locations.light > .bg-icons {
@@ -631,7 +634,7 @@ main section > .container { position: relative; z-index: 1; padding-top: 3.5rem;
   color: rgba(14,165,233,0.22);
   font-size: 18px;
 }
-.bg-icons i { opacity: 0.9; }
+.bg-icons i { opacity: 0.9; line-height: 1; user-select: none; }
 .bg-icons i:nth-child(3n) { color: rgba(56,189,248,0.26); }
 .bg-icons i:nth-child(4n) { color: rgba(124,58,237,0.20); }
 .bg-icons i:nth-child(5n) { color: rgba(29,78,216,0.20); }
