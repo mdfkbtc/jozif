@@ -10,7 +10,10 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <!-- Material Symbols (modern icons) -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24..48,400..600,0..1,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24..48,400..600,0..1,0&display=swap" rel="stylesheet">
+  <!-- Preload hero background image -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1920&auto=format&fit=crop"/>
+  <link rel="preload" as="image" href="assets/hero.webp" type="image/webp"/>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
@@ -41,7 +44,12 @@
   <body>
   <header id="header">
     <div class="container">
-      <div class="logo">PJJ Group</div>
+      <a class="logo" href="#home" aria-label="PJJ Group – Domov">
+        <picture>
+          <source type="image/svg+xml" srcset="assets/logo.svg" />
+          <img src="assets/logo.png" alt="PJJ Group" width="148" height="36" decoding="async" loading="eager" fetchpriority="high" />
+        </picture>
+      </a>
       <nav class="nav">
           <ul>
           <li><a href="#home">Domov</a></li>

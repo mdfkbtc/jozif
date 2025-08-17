@@ -71,12 +71,8 @@ a {
   padding: 1rem 0;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #0ea5e9;
-  letter-spacing: 0.5px;
-}
+.logo { display: inline-flex; align-items: center; gap: 8px; }
+.logo img { display: block; height: 36px; width: auto; }
 
 .nav ul {
   display: flex;
@@ -114,7 +110,9 @@ a {
 /* Hero Section */
 .hero {
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+  background:
+    url('assets/hero.webp') center/cover no-repeat,
+    url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
   position: relative;
   color: #fff;
   display: flex;
@@ -173,11 +171,11 @@ a {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border-radius: 30px;
-  background: linear-gradient(90deg, #0ea5e9, #0284c7);
+  background: linear-gradient(90deg, #14b8a6, #22d3ee);
   color: #fff;
   font-weight: 600;
   transition: background 0.3s, transform 0.2s ease;
-  box-shadow: 0 8px 20px rgba(2,132,199,0.25);
+  box-shadow: 0 8px 20px rgba(20,184,166,0.28);
 }
 
 .btn:hover { filter: brightness(0.95); transform: translateY(-1px); }
@@ -233,6 +231,8 @@ section h2::after {
 .services::before { content: none; }
 
 .service-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; justify-items: stretch; }
+.services h2 { margin-bottom: 2.75rem; }
+@media (max-width: 768px) { .services h2 { margin-bottom: 2rem; } }
 
 .service-card {
   background: rgba(255,255,255,0.82);
@@ -455,7 +455,7 @@ section h2::after {
 
 .contact .btn {
   justify-self: start;
-  background: linear-gradient(90deg, #0ea5e9, #0284c7);
+  background: linear-gradient(90deg, #14b8a6, #22d3ee);
   padding: 0.8rem 2rem;
   border-radius: 30px;
 }
@@ -607,39 +607,45 @@ main section > .container { position: relative; z-index: 1; padding-top: 3.5rem;
   .quote-form .form-row { grid-template-columns: 1fr; }
 }
 
-/* Background icon grid – vyraznejsie, bez pohybu */
+/* Background icon grid as section overlay (light sections only) */
 .bg-icons {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 0;
   display: grid;
-  grid-template-columns: repeat(18, 1fr);
-  gap: 10px;
-  padding: 64px 5% 32px;
-  color: rgba(14,165,233,0.25);
+  pointer-events: none;
+}
+.services.light > .bg-icons,
+.locations.light > .bg-icons {
+  --tile: 48px;
+  --gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(var(--tile), 1fr));
+  grid-auto-rows: var(--tile);
+  gap: var(--gap);
+  padding: 24px 4% 24px;
+  color: rgba(14,165,233,0.22);
   font-size: 18px;
-  pointer-events: none;
 }
-.bg-icons i {
-  opacity: 0.9;
-  pointer-events: none;
-}
-.bg-icons .material-symbols-rounded { opacity: 0.9; pointer-events: none; font-size: 18px; }
-.bg-icons i:nth-child(3n) { color: rgba(56,189,248,0.28); }
-.bg-icons i:nth-child(4n) { color: rgba(124,58,237,0.22); }
-.bg-icons i:nth-child(5n) { color: rgba(29,78,216,0.22); }
+.bg-icons i { opacity: 0.9; }
+.bg-icons i:nth-child(3n) { color: rgba(56,189,248,0.26); }
+.bg-icons i:nth-child(4n) { color: rgba(124,58,237,0.20); }
+.bg-icons i:nth-child(5n) { color: rgba(29,78,216,0.20); }
 
 /* Responsivita pre ikonkové pozadie */
 @media (max-width: 1024px) {
-  .bg-icons { grid-template-columns: repeat(16, 1fr); font-size: 16px; gap: 8px; }
+  .services.light > .bg-icons,
+  .locations.light > .bg-icons { --tile: 40px; --gap: 10px; font-size: 16px; }
   .service-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 768px) {
-  .bg-icons { grid-template-columns: repeat(12, 1fr); font-size: 14px; gap: 6px; padding: 40px 5% 24px; }
+  .services.light > .bg-icons,
+  .locations.light > .bg-icons { --tile: 34px; --gap: 8px; font-size: 14px; padding: 20px 4% 20px; }
   .service-cards { grid-template-columns: 1fr; }
   .service-card { max-width: 100%; }
 }
 @media (max-width: 480px) {
-  .bg-icons { grid-template-columns: repeat(10, 1fr); font-size: 12px; gap: 4px; }
+  .services.light > .bg-icons,
+  .locations.light > .bg-icons { --tile: 28px; --gap: 6px; font-size: 12px; }
 }
 
 /* Accessibility: reduce motion */
