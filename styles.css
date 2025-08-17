@@ -20,9 +20,10 @@ html, body { height: 100%; }
 main {
   height: 100vh;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   scroll-padding-top: 90px;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 h1, h2, h3 {
@@ -111,7 +112,7 @@ a {
 .hero {
   height: 100vh;
   background:
-    url('assets/hero.webp') center/cover no-repeat,
+    url('assets/hero.avif') center/cover no-repeat,
     url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
   position: relative;
   color: #fff;
@@ -128,7 +129,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(14,165,233,0.55), rgba(2,132,199,0.55));
+  background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.22));
   z-index: 1;
 }
 
@@ -194,10 +195,7 @@ section h2 {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 1.5rem;
-  background: linear-gradient(90deg, #0ea5e9, #38bdf8, #1d4ed8);
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
+  color: #0b1f3a;
   position: relative;
 }
 
@@ -216,6 +214,9 @@ section h2::after {
   background: linear-gradient(90deg, #38bdf8, #1d4ed8);
   border-radius: 2px;
 }
+
+/* Heading color adjustments for dark sections */
+.services.dark h2, .locations.dark h2 { color: #e6f1ff; }
 
 /* Services Section */
 .services { padding-top: 6rem; }
@@ -474,7 +475,7 @@ main section {
   align-items: center;
 }
 /* snap each section */
-main > section { scroll-snap-align: start; scroll-snap-stop: always; }
+main > section { scroll-snap-align: start; scroll-snap-stop: normal; }
 /* Ensure content sits above decorative overlays */
 main section > .container { position: relative; z-index: 1; padding-top: 3.5rem; padding-bottom: 3.5rem; }
 /* rozlozime ikonkovy grid pod obsah sekcie */

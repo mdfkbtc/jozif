@@ -45,10 +45,7 @@
   <header id="header">
     <div class="container">
       <a class="logo" href="#home" aria-label="PJJ Group – Domov">
-        <picture>
-          <source type="image/svg+xml" srcset="assets/logo.svg" />
-          <img src="assets/logo.png" alt="PJJ Group" width="148" height="36" decoding="async" loading="eager" fetchpriority="high" />
-        </picture>
+        <img src="assets/logo.png" alt="PJJ Group" width="148" height="36" decoding="async" loading="eager" fetchpriority="high" />
       </a>
       <nav class="nav">
           <ul>
@@ -258,6 +255,33 @@
     </section>
     
   </main>
+  <!-- Minimal contact form -->
+  <section id="mini-contact" class="services light">
+    <div class="bg-icons" aria-hidden="true"></div>
+    <div class="container">
+      <h2 class="animatable">Nechajte nám kontakt</h2>
+      <form class="service-cards animatable" action="#" method="post" style="grid-template-columns: 1fr; max-width: 720px; margin: 0 auto; gap: 1rem;">
+        <div class="service-card" style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label for="mc-name" style="display:block; font-weight:600; margin-bottom:6px;">Meno</label>
+            <input id="mc-name" name="name" type="text" placeholder="Vaše meno" required style="width:100%; padding:0.8rem; border:1px solid #e5e7eb; border-radius:10px;">
+          </div>
+          <div>
+            <label for="mc-phone" style="display:block; font-weight:600; margin-bottom:6px;">Telefón</label>
+            <input id="mc-phone" name="phone" type="tel" placeholder="0911 123 456" required style="width:100%; padding:0.8rem; border:1px solid #e5e7eb; border-radius:10px;">
+          </div>
+          <div style="grid-column: 1 / -1;">
+            <label for="mc-note" style="display:block; font-weight:600; margin-bottom:6px;">Poznámka (voliteľné)</label>
+            <textarea id="mc-note" name="note" rows="3" placeholder="Stručne vašu požiadavku" style="width:100%; padding:0.8rem; border:1px solid #e5e7eb; border-radius:10px;"></textarea>
+          </div>
+          <div style="grid-column: 1 / -1; display:flex; gap:10px; align-items:center;">
+            <button type="submit" class="btn">Zavolajte mi späť</button>
+            <small style="color:#475569;">Ozveme sa do 60 minút.</small>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
   <footer class="footer">
     <div class="container">
       <p>© 2025 PJJ Group • Všetky práva vyhradené</p>
