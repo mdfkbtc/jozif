@@ -11,6 +11,10 @@ body {
   color: #333;
   scroll-behavior: smooth;
 }
+
+:root {
+  --nav-rgb: 11,31,58; /* base tint used for glass */
+}
 /* Material Symbols utility */
 .material-symbols-rounded {
   font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
@@ -54,7 +58,7 @@ a {
   left: 0;
   width: 100%;
   z-index: 100;
-  background: rgba(11,31,58,0.45);
+  background: rgba(var(--nav-rgb), 0.45);
   -webkit-backdrop-filter: blur(12px) saturate(1.1);
           backdrop-filter: blur(12px) saturate(1.1);
   border-bottom: 1px solid rgba(255,255,255,0.12);
@@ -63,7 +67,7 @@ a {
 }
 
 #header.scrolled {
-  background: rgba(11,31,58,0.7);
+  background: rgba(var(--nav-rgb), 0.7);
   box-shadow: 0 10px 22px rgba(0,0,0,0.28);
   border-bottom-color: rgba(255,255,255,0.16);
 }
@@ -261,7 +265,7 @@ section h2::after {
 @media (max-width: 768px) { .services h2 { margin-bottom: 2rem; } }
 
 .service-card {
-  background: rgba(255,255,255,0.65);
+  background: rgba(var(--nav-rgb), 0.06);
   -webkit-backdrop-filter: blur(10px) saturate(1.2);
           backdrop-filter: blur(10px) saturate(1.2);
   padding: 1.6rem;
@@ -270,7 +274,7 @@ section h2::after {
   box-shadow: 0 18px 40px rgba(2,132,199,0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
   position: relative;
-  border: 1px solid rgba(2,132,199,0.12);
+  border: 1px solid rgba(2,132,199,0.18);
   will-change: transform, box-shadow;
 }
 
@@ -338,10 +342,10 @@ section h2::after {
 
 /* dark variant glass for services */
 .services.dark .service-card {
-  background: rgba(10,25,47,0.55);
+  background: rgba(var(--nav-rgb), 0.28);
   -webkit-backdrop-filter: saturate(1.1) blur(10px);
           backdrop-filter: saturate(1.1) blur(10px);
-  border-color: rgba(148,163,184,0.18);
+  border-color: rgba(148,163,184,0.22);
   box-shadow: 0 18px 40px rgba(0,0,0,0.18);
 }
 
@@ -416,7 +420,7 @@ section h2::after {
   gap: 1.25rem 1.25rem;
 }
 .locations.light .location-item {
-  background: rgba(255,255,255,0.65);
+  background: rgba(var(--nav-rgb), 0.06);
   -webkit-backdrop-filter: blur(8px) saturate(1.1);
           backdrop-filter: blur(8px) saturate(1.1);
   border: 1px solid rgba(2,132,199,0.18);
@@ -586,9 +590,9 @@ main section > .container { position: relative; z-index: 1; padding-top: 3.5rem;
   bottom: -40px;
   width: 14px;
   height: 14px;
-  background: rgba(255,255,255,0.18);
+  background: rgba(var(--nav-rgb), 0.2);
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.28);
+  border: 1px solid rgba(var(--nav-rgb), 0.35);
   -webkit-backdrop-filter: blur(6px) saturate(1.2);
           backdrop-filter: blur(6px) saturate(1.2);
   box-shadow: 0 8px 18px rgba(0,0,0,0.15);
