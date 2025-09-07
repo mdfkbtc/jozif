@@ -281,6 +281,7 @@ section h2::after {
           mask-composite: exclude;
   opacity: 0.5;
   transition: opacity 0.25s ease;
+  pointer-events: none;
 }
 .service-card:hover::after { opacity: 1; }
 
