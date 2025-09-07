@@ -255,7 +255,8 @@ section h2::after {
 
 .service-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; justify-items: stretch; }
 .service-cards > .service-card { min-height: 220px; }
-@media (min-width: 1280px) { .service-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.8rem; } }
+@media (min-width: 1280px) { .service-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.8rem; } }
+.services .service-cards { max-width: 1200px; margin: 0 auto; }
 .services h2 { margin-bottom: 2.75rem; }
 @media (max-width: 768px) { .services h2 { margin-bottom: 2rem; } }
 
@@ -583,18 +584,18 @@ main section > .container { position: relative; z-index: 1; padding-top: 3.5rem;
 .bubbles span {
   position: absolute;
   bottom: -40px;
-  width: 12px;
-  height: 12px;
-  background: rgba(56,189,248,0.85);
-  border-radius: 50%;
-  filter: blur(0.5px);
-  animation: rise 8s infinite ease-in;
+  width: 14px;
+  height: 14px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.28);
+  -webkit-backdrop-filter: blur(6px) saturate(1.2);
+          backdrop-filter: blur(6px) saturate(1.2);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  animation: rise 9s infinite ease-in;
 }
-.bubbles span:nth-child(odd) { width: 8px; height: 8px; animation-duration: 9s; opacity: 0.95; background: rgba(14,165,233,0.85); }
-.bubbles span:nth-child(3n) { width: 14px; height: 14px; animation-duration: 7s; opacity: 0.9; background: rgba(2,132,199,0.85); }
-.bubbles span:nth-child(4n) { background: rgba(96,165,250,0.85); }
-.bubbles span:nth-child(5n) { background: rgba(59,130,246,0.85); }
-.bubbles span:nth-child(6n) { background: rgba(37,99,235,0.85); }
+.bubbles span:nth-child(odd) { width: 10px; height: 10px; animation-duration: 10s; opacity: 0.95; }
+.bubbles span:nth-child(3n) { width: 16px; height: 16px; animation-duration: 8s; opacity: 0.92; }
 .bubbles span:nth-child(1) { left: 10%; }
 .bubbles span:nth-child(2) { left: 20%; }
 .bubbles span:nth-child(3) { left: 30%; }
@@ -689,7 +690,7 @@ main section > .container { position: relative; z-index: 1; padding-top: 3.5rem;
   color: rgba(14,165,233,0.22);
   font-size: 18px;
 }
-.locations.light > .bg-icons { display: none; }
+/* keep background icons visible for locations light */
 .bg-icons i { opacity: 0.9; line-height: 1; user-select: none; }
 .bg-icons i:nth-child(3n) { color: rgba(56,189,248,0.26); }
 .bg-icons i:nth-child(4n) { color: rgba(124,58,237,0.20); }
