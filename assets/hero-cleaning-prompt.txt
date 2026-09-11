@@ -1,0 +1,11 @@
+Generated with the built-in image_gen tool.
+Source: hero-cleaning.png
+Web asset: hero-cleaning.webp
+
+Use case: photorealistic-natural
+Asset type: hero photograph for Pejona, a Slovak professional cleaning services website for homes and businesses, with an ivory and forest-green visual design.
+Primary request: A premium, authentic editorial photograph of professional cleaning in a bright contemporary interior. One adult cleaning professional in a neat plain sage-green polo and beige trousers, wearing subtle neutral protective gloves, carefully wiping a light oak meeting table with a microfiber cloth. A small tidy unbranded cleaning caddy nearby. Airy modern residential-style office, cream walls, large daylight windows, a soft green plant and simple chairs. Natural believable working posture, focus on attentive work and clean surfaces, not posing for camera.
+Composition/framing: square photograph, medium environmental shot, main person and hand action centered within the middle 65 percent so it crops beautifully to a portrait-like hero card on mobile and desktop. Keep the bottom 15 percent simple for a caption overlay. Eye-level professional interior photography, realistic anatomy and materials.
+Lighting/mood: soft abundant natural daylight, calm, trustworthy, fresh, welcoming, understated European small-business aesthetic.
+Color palette: warm ivory, light oak, muted sage, forest-green accents.
+Constraints: no text, no logos, no watermark, no medical masks or goggles, no exaggerated sparkling effects, no collage, no before-after, no excessive cleaning products, no artificial plastic skin.
