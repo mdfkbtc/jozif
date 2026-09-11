@@ -6,90 +6,9 @@
   <meta name="robots" content="index,follow" />
   <title>Ochrana osobných údajov | Pejona s. r. o.</title>
   <meta name="description" content="Zásady ochrany osobných údajov spoločnosti Pejona s. r. o. podľa GDPR." />
-  <style>
-    :root{
-      --bg:#0b1220;
-      --card:#111a2b;
-      --text:#eaf2ff;
-      --muted:#9fb0c8;
-      --line:rgba(255,255,255,.10);
-      --accent:#22d3ee;
-      --accent2:#14b8a6;
-      --warn:#fbbf24;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Arial,Helvetica,sans-serif;
-      line-height:1.7;
-      background:var(--bg);
-      color:var(--text);
-    }
-    .wrap{
-      width:min(100% - 32px, 980px);
-      margin:0 auto;
-      padding:48px 0 70px;
-    }
-    .top{
-      margin-bottom:28px;
-      padding-bottom:22px;
-      border-bottom:1px solid var(--line);
-    }
-    h1,h2,h3{line-height:1.25}
-    h1{font-size:clamp(2rem,5vw,3.2rem);margin:0 0 12px}
-    h2{margin-top:38px;font-size:1.55rem}
-    h3{margin-top:26px;font-size:1.15rem}
-    p,li{color:#d8e4f4}
-    a{color:var(--accent)}
-    .muted{color:var(--muted)}
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:22px;
-      margin:20px 0;
-    }
-    .placeholder{
-      color:var(--warn);
-      font-weight:700;
-    }
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin:18px 0;
-      background:var(--card);
-      border-radius:12px;
-      overflow:hidden;
-    }
-    th,td{
-      border:1px solid var(--line);
-      text-align:left;
-      vertical-align:top;
-      padding:12px;
-    }
-    th{background:rgba(255,255,255,.04)}
-    .back{
-      display:inline-block;
-      margin-bottom:24px;
-      text-decoration:none;
-      font-weight:700;
-    }
-    .notice{
-      border-left:4px solid var(--warn);
-      padding:14px 16px;
-      background:rgba(251,191,36,.08);
-      border-radius:8px;
-    }
-    footer{
-      margin-top:48px;
-      padding-top:24px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:.95rem;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="legal-page">
   <main class="wrap">
     <a class="back" href="index.html">← Späť na hlavnú stránku</a>
 
@@ -134,7 +53,7 @@
       <h2>3. Kontaktný formulár a dopyty</h2>
       <p>Na webovej stránke sa nachádza kontaktný formulár, prostredníctvom ktorého je možné odoslať meno, e-mail, telefónne číslo a voliteľnú poznámku. Tieto údaje používame na vybavenie vašej požiadavky, komunikáciu, vypracovanie cenovej ponuky a prípadné uzatvorenie alebo plnenie zmluvného vzťahu.</p>
 
-      <table>
+      <div class="table-scroll" role="region" aria-label="Účely spracúvania údajov" tabindex="0"><table>
         <thead>
           <tr>
             <th>Účel</th>
@@ -154,7 +73,7 @@
             <td>Po dobu nevyhnutnú na vybavenie komunikácie a primeranú dobu následne</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Poskytnutie údajov v kontaktnom formulári je dobrovoľné. Bez údajov označených ako povinné však nemusíme vedieť vašu požiadavku vybaviť.</p>
     </section>
