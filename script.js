@@ -68,7 +68,7 @@ if (slideshow) {
   };
   const updatePlayback = () => {
     clearInterval(timer);
-    play.textContent = paused ? '▶' : 'Ⅱ';
+    play.classList.toggle('is-paused', paused);
     play.setAttribute('aria-label', paused ? 'Spustiť striedanie fotografií' : 'Pozastaviť striedanie fotografií');
     if (!paused && !hovered && !document.hidden) {
       timer = setInterval(() => showSlide(active + 1), 6000);
