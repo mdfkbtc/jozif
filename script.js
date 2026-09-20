@@ -45,3 +45,58 @@ if (currentUrl.searchParams.get('sent') === '1') {
   const message = document.querySelector('#mc-success');
   if (message) message.hidden = false;
 }
+
+const slideshow = document.querySelector('.hero-visual');
+if (slideshow) {
+  const slides = [...slideshow.querySelectorAll('.hero-slide')];
+  const controls = slideshow.querySelector('.hero-slide-controls');
+  const dots = [...slideshow.querySelectorAll('[data-slide]')];
+  const play = slideshow.querySelector('.slide-play');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let active = 0;
+  let paused = reducedMotion.matches;
+  let hovered = false;
+  let timer;
+
+  const showSlide = (index) => {
+    active = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('is-active', i === active);
+      slide.setAttribute('aria-hidden', String(i !== active));
+      dots[i].setAttribute('aria-pressed', String(i === active));
+    });
+  };
+  const updatePlayback = () => {
+    clearInterval(timer);
+    play.textContent = paused ? '▶' : 'Ⅱ';
+    play.setAttribute('aria-label', paused ? 'Spustiť striedanie fotografií' : 'Pozastaviť striedanie fotografií');
+    if (!paused && !hovered && !document.hidden) {
+      timer = setInterval(() => showSlide(active + 1), 6000);
+    }
+  };
+  if (slides.length > 1 && controls && play) {
+    controls.hidden = false;
+    // Fetch the remaining photographs before the first transition.
+    slides.forEach((slide) => { slide.loading = 'eager'; });
+    controls.addEventListener('click', (event) => {
+      const button = event.target.closest('button');
+      if (!button) return;
+      if (button === play) paused = !paused;
+      else {
+        paused = true;
+        if (button.dataset.slide !== undefined) showSlide(Number(button.dataset.slide));
+        else if (button.dataset.direction) showSlide(active + Number(button.dataset.direction));
+      }
+      updatePlayback();
+    });
+    slideshow.addEventListener('mouseenter', () => { hovered = true; updatePlayback(); });
+    slideshow.addEventListener('mouseleave', () => { hovered = false; updatePlayback(); });
+    slideshow.addEventListener('focusin', () => { paused = true; updatePlayback(); });
+    document.addEventListener('visibilitychange', updatePlayback);
+    reducedMotion.addEventListener('change', () => {
+      if (reducedMotion.matches) paused = true;
+      updatePlayback();
+    });
+    updatePlayback();
+  }
+}
