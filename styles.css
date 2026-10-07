@@ -205,3 +205,15 @@ h1 em { font-family: Georgia, serif; font-weight: 400; color: #2e6f9d; letter-sp
 .caption-symbol .icon { width: 40px; height: 40px; }
 .menu-toggle .icon-close, .menu-toggle[aria-expanded="true"] .icon-menu { display: none; }
 .menu-toggle[aria-expanded="true"] .icon-close { display: inline-block; }
+
+/* Contact submission feedback */
+.contact-form .btn:disabled { cursor: wait; opacity: .65; transform: none; }
+.contact-dialog { width: min(480px, calc(100% - 36px)); max-height: calc(100dvh - 40px); overflow-y: auto; padding: 32px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); color: var(--ink); box-shadow: 0 24px 80px #17364d33; }
+.contact-dialog::backdrop { background: rgba(15, 35, 50, .55); }
+.contact-dialog h2 { font-size: 1.8rem; margin-bottom: 16px; }
+.contact-dialog p { color: var(--muted); font-size: .95rem; }
+.contact-dialog-help { margin-top: 16px; }
+.contact-dialog form { margin-top: 24px; }
+.contact-dialog .btn { width: 100%; }
+.contact-dialog[data-state="error"] { border-top: 4px solid #ac5933; }
+.contact-dialog[data-state="success"] { border-top: 4px solid var(--blue); }

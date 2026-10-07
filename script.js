@@ -46,6 +46,64 @@ if (currentUrl.searchParams.get('sent') === '1') {
   if (message) message.hidden = false;
 }
 
+const contactForm = document.querySelector('.contact-form');
+const contactResult = document.querySelector('#contact-result');
+if (contactForm && contactResult && typeof contactResult.showModal === 'function') {
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const title = contactResult.querySelector('#contact-result-title');
+  const message = contactResult.querySelector('#contact-result-message');
+  const help = contactResult.querySelector('.contact-dialog-help');
+  let submitting = false;
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (submitting) return;
+    submitting = true;
+    const buttonContent = submitButton.innerHTML;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20000);
+    const data = new FormData(contactForm);
+    data.delete('_next');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Odosielam…';
+    contactForm.setAttribute('aria-busy', 'true');
+    document.querySelector('#mc-success').hidden = true;
+    let success = false;
+
+    try {
+      const endpoint = new URL(contactForm.action);
+      endpoint.pathname = '/ajax' + endpoint.pathname;
+      const response = await fetch(endpoint.href, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+        signal: controller.signal,
+      });
+      const result = await response.json();
+      if (!response.ok || (result.success !== true && result.success !== 'true')) {
+        throw new Error('Submission not accepted');
+      }
+      success = true;
+      contactForm.reset();
+      title.textContent = 'Ďakujeme za správu';
+      message.textContent = 'Vaša správa bola úspešne odoslaná. Ozveme sa vám čo najskôr.';
+    } catch {
+      title.textContent = 'Odoslanie sa nepodarilo potvrdiť';
+      message.textContent = 'Skontrolujte internetové pripojenie a skúste to znova. Vyplnené údaje zostali zachované.';
+    } finally {
+      clearTimeout(timeout);
+      submitting = false;
+      submitButton.disabled = false;
+      submitButton.innerHTML = buttonContent;
+      contactForm.removeAttribute('aria-busy');
+    }
+    help.hidden = success;
+    contactResult.dataset.state = success ? 'success' : 'error';
+    contactResult.showModal();
+  });
+  contactResult.addEventListener('close', () => submitButton.focus());
+}
+
 const slideshow = document.querySelector('.hero-visual');
 if (slideshow) {
   const slides = [...slideshow.querySelectorAll('.hero-slide')];
