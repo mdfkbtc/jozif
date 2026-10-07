@@ -49,13 +49,9 @@ if (currentUrl.searchParams.get('sent') === '1') {
 const slideshow = document.querySelector('.hero-visual');
 if (slideshow) {
   const slides = [...slideshow.querySelectorAll('.hero-slide')];
-  const controls = slideshow.querySelector('.hero-slide-controls');
-  const dots = [...slideshow.querySelectorAll('[data-slide]')];
-  const play = slideshow.querySelector('.slide-play');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const slideInterval = 6000;
   let active = 0;
-  let paused = reducedMotion.matches;
-  let hovered = false;
   let timer;
 
   const showSlide = (index) => {
@@ -63,40 +59,19 @@ if (slideshow) {
     slides.forEach((slide, i) => {
       slide.classList.toggle('is-active', i === active);
       slide.setAttribute('aria-hidden', String(i !== active));
-      dots[i].setAttribute('aria-pressed', String(i === active));
     });
   };
   const updatePlayback = () => {
     clearInterval(timer);
-    play.classList.toggle('is-paused', paused);
-    play.setAttribute('aria-label', paused ? 'Spustiť striedanie fotografií' : 'Pozastaviť striedanie fotografií');
-    if (!paused && !hovered && !document.hidden) {
-      timer = setInterval(() => showSlide(active + 1), 6000);
+    if (!reducedMotion.matches && !document.hidden) {
+      timer = setInterval(() => showSlide(active + 1), slideInterval);
     }
   };
-  if (slides.length > 1 && controls && play) {
-    controls.hidden = false;
+  if (slides.length > 1) {
     // Fetch the remaining photographs before the first transition.
     slides.forEach((slide) => { slide.loading = 'eager'; });
-    controls.addEventListener('click', (event) => {
-      const button = event.target.closest('button');
-      if (!button) return;
-      if (button === play) paused = !paused;
-      else {
-        paused = true;
-        if (button.dataset.slide !== undefined) showSlide(Number(button.dataset.slide));
-        else if (button.dataset.direction) showSlide(active + Number(button.dataset.direction));
-      }
-      updatePlayback();
-    });
-    slideshow.addEventListener('mouseenter', () => { hovered = true; updatePlayback(); });
-    slideshow.addEventListener('mouseleave', () => { hovered = false; updatePlayback(); });
-    slideshow.addEventListener('focusin', () => { paused = true; updatePlayback(); });
     document.addEventListener('visibilitychange', updatePlayback);
-    reducedMotion.addEventListener('change', () => {
-      if (reducedMotion.matches) paused = true;
-      updatePlayback();
-    });
+    reducedMotion.addEventListener('change', updatePlayback);
     updatePlayback();
   }
 }
