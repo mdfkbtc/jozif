@@ -22,7 +22,7 @@ button, input, textarea { font: inherit; }
 button, a, input, textarea, summary { -webkit-tap-highlight-color: transparent; }
 button, summary { cursor: pointer; }
 img { display: block; max-width: 100%; }
-[hidden], .honeypot { display: none !important; }
+[hidden] { display: none !important; }
 :focus-visible { outline: 3px solid #3175a4; outline-offset: 5px; }
 ::selection { background: var(--accent); color: var(--blue); }
 .container { width: min(calc(100% - 80px), var(--container)); margin-inline: auto; }
