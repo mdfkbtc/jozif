@@ -3,17 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pejona | Profesionálne upratovanie v Žiline</title>
+  <title>Upratovanie Žilina a okolie | Pejona</title>
+  <link rel="canonical" href="https://www.pejona.sk/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sk_SK">
+  <meta property="og:site_name" content="Pejona">
+  <meta property="og:title" content="Upratovanie Žilina a okolie | Pejona">
+  <meta property="og:description" content="Upratovanie domácností a firiem v Žiline a okolí. Jednorazovo aj pravidelne, tepovanie kobercov a upratovanie po stavbe. Dohodnite si nezáväznú ponuku.">
+  <meta property="og:url" content="https://www.pejona.sk/">
+  <meta property="og:image" content="https://www.pejona.sk/assets/hero-team-office.webp">
+  <meta property="og:image:alt" content="Upratovanie kancelárskych priestorov – Pejona, Žilina">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="description" content="Pejona – profesionálne upratovacie služby pre domácnosti a firmy v Žiline a okolí. Spoľahlivo, kvalitne, férová cena. Získajte nezáväznú ponuku ešte dnes." />
   <meta name="theme-color" content="#155986">
   <link rel="icon" type="image/png" href="assets/logos/pejona.png">
-  <link rel="preload" as="image" href="assets/hero-cleaning-blue.webp" type="image/webp">
+  <link rel="preload" as="image" href="assets/hero-woman-office.webp" type="image/webp">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@graph": [{
     "@type": "LocalBusiness",
+    "@id": "https://www.pejona.sk/#business",
+    "url": "https://www.pejona.sk/",
+    "logo": "https://www.pejona.sk/assets/logos/pejona.png",
+    "description": "Upratovacie služby pre domácnosti a firmy v Žiline a okolí, jednorazovo aj pravidelne.",
     "name": "Pejona s. r. o.",
     "image": "https://www.pejona.sk/assets/hero-cleaning-blue.webp",
     "telephone": "+421-910-433-447",
@@ -36,6 +51,22 @@
       "Terchová"
     ],
     "priceRange": "€€"
+    }, {
+      "@type": "WebSite",
+      "@id": "https://www.pejona.sk/#website",
+      "url": "https://www.pejona.sk/",
+      "name": "Pejona",
+      "inLanguage": "sk",
+      "publisher": { "@id": "https://www.pejona.sk/#business" }
+    }, {
+      "@type": "WebPage",
+      "@id": "https://www.pejona.sk/#webpage",
+      "url": "https://www.pejona.sk/",
+      "name": "Upratovanie Žilina a okolie | Pejona",
+      "inLanguage": "sk",
+      "isPartOf": { "@id": "https://www.pejona.sk/#website" },
+      "about": { "@id": "https://www.pejona.sk/#business" }
+    }]
   }
   </script>
 </head>
@@ -56,7 +87,7 @@
       <div class="container hero-grid">
         <div class="hero-content">
           <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> UPRATOVACIE SLUŽBY · ŽILINA A OKOLIE</p>
-          <h1>Čistý priestor.<br><em>Pokojná myseľ.</em></h1>
+          <h1>Upratovanie v Žiline.<br><em>Čistý priestor, pokojná myseľ.</em></h1>
           <p class="hero-description">Profesionálne upratovanie pre domácnosti a firmy. O poriadok sa postaráme my, vy získate čas na to, na čom vám záleží.</p>
           <div class="hero-cta"><a class="btn" href="#mini-contact">Chcem nezáväznú ponuku <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a><a class="text-link" href="#services">Pozrieť služby <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></span></a></div>
           <div class="hero-note"><span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 12 4 4L19 6"/></svg></span> Jednorazovo aj pravidelne <span class="note-divider" aria-hidden="true">/</span> Pre domácnosti aj firmy</div>
@@ -81,7 +112,7 @@
       <div><form class="contact-form" action="https://formsubmit.co/info@pejona.sk" method="POST">
         <input type="hidden" name="_subject" value="Nová objednávka z webu Pejona"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_next" value="https://www.pejona.sk/?sent=1#mini-contact">
         <div class="form-grid"><div class="field"><label for="mc-name">Meno <span>(povinné)</span></label><input id="mc-name" name="name" autocomplete="name" placeholder="Vaše meno" required></div><div class="field"><label for="mc-email">E-mail <span>(povinné)</span></label><input id="mc-email" name="email" type="email" autocomplete="email" placeholder="vas@priklad.sk" required></div><div class="field field-full"><label for="mc-phone">Telefón</label><input id="mc-phone" name="phone" type="tel" autocomplete="tel" placeholder="0900 123 456"></div><div class="field field-full"><label for="mc-note">S čím vám pomôžeme?</label><textarea id="mc-note" name="note" rows="4" placeholder="Typ priestoru, lokalita a čo potrebujete upratať…"></textarea></div></div>
-        <p class="form-privacy">Informácie o spracovaní údajov nájdete v <a href="gdpr.html">zásadách ochrany osobných údajov</a>.</p><button type="submit" class="btn">Odoslať nezáväzný dopyt <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></span></button>
+        <p class="form-privacy">Formulár odosiela údaje cez službu FormSubmit. Podrobnosti nájdete v <a href="gdpr.html#formsubmit">zásadách ochrany osobných údajov</a>.</p><button type="submit" class="btn">Odoslať nezáväzný dopyt <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></span></button>
       </form><p id="mc-success" class="form-success" role="status" hidden>Ďakujeme, vaša požiadavka bola odoslaná. Ozveme sa čoskoro.</p></div>
     </div></section>
     <dialog class="contact-dialog" id="contact-result" aria-labelledby="contact-result-title" aria-describedby="contact-result-message">

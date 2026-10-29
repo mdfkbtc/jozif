@@ -1,6 +1,6 @@
 # Dokončenie GDPR nastavenia
 
-Stav k 23. 9. 2026: text a statický web upravené; úplný súlad zatiaľ nepotvrdený. Dokument je interný a web naň neodkazuje. Pri nasadení publikovať len verejné súbory webu.
+Stav k 29. 10. 2026: doplnené informovanie o aktívnom kontaktnom formulári cez FormSubmit; úplný súlad zatiaľ nepotvrdený. Dokument je interný a web naň neodkazuje. Pri nasadení publikovať len verejné súbory webu.
 
 ## Nastavené pravidlá
 
@@ -16,7 +16,7 @@ Stav k 23. 9. 2026: text a statický web upravené; úplný súlad zatiaľ nepot
 2. Overiť zmluvné zabezpečenie spracovateľov podľa čl. 28 GDPR a posúdenie oprávnených záujmov. Existencia týchto dokumentov nebola overená.
 3. Zaviesť skutočné mazanie e-mailov a dokumentov podľa uvedených lehôt. Nastaviť logy u hostingu na najviac 30 dní. Overiť zálohy, dobu ich rotácie a zabránenie obnoveniu už vymazaných údajov do bežného používania. Úprava HTML tieto operácie nevykonáva.
 4. Na produkcii overiť cookies, hlavičky a sieťové požiadavky vrátane vrstiev hostingu/CDN. Lokálny kód neobsahuje sledovanie ani webové úložisko; správanie infraštruktúry zatiaľ nebolo overené.
-5. Ak sa služba FormSubmit v minulosti používala, preveriť zostávajúce údaje a ukončenie jej používania. Odstránenie kódu nemaže údaje u bývalého dodávateľa.
+5. FormSubmit je aktívne používaný. Verejné zásady https://formsubmit.co/privacy.pdf (účinnosť uvedená v dokumente: 17. 1. 2019) potvrdzujú spracúvanie obsahu formulárov na doručenie a možné cookies, ale neuvádzajú konkrétne krajiny spracúvania ani úplnú identitu zmluvného subjektu. Dokumentácia https://formsubmit.co/documentation a FAQ https://formsubmit.co/help uvádzajú 30 dní uchovávania odoslaných formulárov; nejde o nezávisle overený výmaz ani potvrdenie lehôt pre všetky logy a zálohy. Od support@formsubmit.co vyžiadať identitu subjektu, spracovateľské podmienky podľa čl. 28, subdodávateľov, krajiny uloženia/prístupu, prenosové záruky a lehoty vrátane záloh/logov a spôsobu výmazu. Tieto skutočnosti ani DPA/SCC neboli overené; neuvádzať ich ako zabezpečené. Verejné informovanie túto medzeru neodstraňuje. Pred potvrdením vhodnosti služby na spracúvanie údajov pod GDPR dokončiť toto overenie; ak podmienky nemožno zabezpečiť, nahradiť službu vhodným riešením. Testy nevykonávajú reálne odoslanie osobných údajov.
 
 ## Právne podklady
 
